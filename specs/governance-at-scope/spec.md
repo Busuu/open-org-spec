@@ -42,6 +42,7 @@ Every decision record is a markdown file named `YYYY-MM-DD-short-title.md`. The 
 | `Status` | Yes | Current state: `proposed \| draft \| open \| accepted \| decided \| superseded \| closed \| archived` |
 | `Owner` | Yes | The person accountable for driving this decision to resolution |
 | `decided_at` | When status is closed | ISO date (`YYYY-MM-DD`) when the decision reached its final state. Enables time-to-decision measurement. Required as soon as `Status` transitions to any resolved value. |
+| `risk_number` | No | Identifier of a related risk register entry (e.g. `R-042`). Leave blank or omit when the decision has no associated risk. |
 
 **`decided_at` discipline.** When a decision's status changes to a resolved value (`accepted`, `decided`, `superseded`, `closed`, `archived`), the author must add `decided_at` in the same commit. This is the only reliable way to measure decision velocity — git log approximations exist but are lossy (the status field may have been touched for reasons other than resolution). The explicit date is the authoritative source.
 
