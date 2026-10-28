@@ -1,0 +1,14 @@
+name: 🛡️ Trivy
+
+on:
+  pull_request:
+    branches: [main]
+
+# A reusable workflow can't hold more than its caller grants. It posts the HIGH report as a PR comment.
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  trivy:
+    uses: Busuu/github-actions/.github/workflows/security_trivy_v1.yaml@main
